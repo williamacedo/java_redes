@@ -35,8 +35,6 @@ class Worker extends Thread {
             int q = 0;
 
             msg = entrada.nextLine().toLowerCase();
-
-            System.out.println(msg);
                 for(int i = 0; i < msg.length(); i++){
                     char c = msg.charAt(i);
                     if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
