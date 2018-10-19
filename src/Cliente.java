@@ -13,13 +13,7 @@ public class Cliente {
 
 		System.out.println("Digite uma mensagem");
 		String msg = teclado.nextLine();
-
-		if(teclado.hasNextLine()) {
-			saida.println(msg);
-		} else {
-			//System.out.println('error');
-			return;
-		}
+		saida.println(msg);
 		// recebe as vogais
 		int numero = entrada.nextInt();
 		System.out.println("Vogais" + numero);
