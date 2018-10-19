@@ -12,13 +12,14 @@ public class Cliente {
         Scanner entrada = new Scanner(s.getInputStream());
         PrintWriter saida = new PrintWriter(s.getOutputStream(), true);
 
-        System.out.println("Total de questões: 5");
         System.out.println("Digite o gabarito");
         String gabarito = keyboard.nextLine();
-        saida.println(gabarito);
+        int questoes = gabarito.length();
+        String gabaritoOficial = "ABCDE";
+        
+        String informacoes = gabarito+" "+questoes+" "+gabaritoOficial;
+        saida.println(informacoes);
 
-        int qtd = entrada.nextInt();
-        System.out.println(qtd);
         saida.close();
         entrada.close();
         s.close();

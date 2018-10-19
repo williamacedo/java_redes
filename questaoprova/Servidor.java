@@ -8,16 +8,22 @@ public class Servidor {
         ServerSocket serv = new ServerSocket(3000);
             Socket s = serv.accept();
 
-        String gabarito;
+        String informacoesCliente;
         Scanner keyboard = new Scanner(System.in);
         Scanner entrada = new Scanner(s.getInputStream());
         
         PrintWriter saida = new PrintWriter(s.getOutputStream(), true);
 
-        gabarito = entrada.nextLine().toUpperCase();
+        informacoesCliente = entrada.nextLine();
+        String str[] = informacoesCliente.split(" ");
+        
+        String gabarito = str[0];
+        double qtd = Double.parseDouble(str[1]);
+        String gabaritoOficial = str[2];
+
         // ABCDE
         int q = 0;
-        String gabaritoOficial = "ABCDE";
+        
         for(int i = 0;i < gabarito.length(); i++){
             char c = gabarito.charAt(i);
             char d = gabaritoOficial.charAt(i);
@@ -25,9 +31,8 @@ public class Servidor {
                 q++;
             }                                                                                                                                 
         }
-
+        System.out.println(qtd);
         System.out.println(q);
-        saida.println(q);
         entrada.close();
         saida.close();
         s.close();                    
