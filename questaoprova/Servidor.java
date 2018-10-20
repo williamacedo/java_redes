@@ -17,22 +17,20 @@ public class Servidor {
         informacoesCliente = entrada.nextLine();
         String str[] = informacoesCliente.split(" ");
         
-        String gabarito = str[0];
-        double qtd = Double.parseDouble(str[1]);
-        String gabaritoOficial = str[2];
+        double questoes = Double.parseDouble(str[0]);
+        String gabaritoOficial = str[1]; 
+        String gabarito = str[2];
 
-        // ABCDE
         int q = 0;
         
-        for(int i = 0;i < gabarito.length(); i++){
+        for(int i = 0;i < questoes; i++){
             char c = gabarito.charAt(i);
             char d = gabaritoOficial.charAt(i);
             if(c == d){
                 q++;
             }                                                                                                                                 
         }
-        System.out.println(qtd);
-        System.out.println(q);
+        saida.println(q);
         entrada.close();
         saida.close();
         s.close();                    

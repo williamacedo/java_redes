@@ -1,6 +1,5 @@
 import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.Socket;
+import java.net.*;
 import java.util.Scanner;
 
 public class Cliente {
@@ -12,14 +11,22 @@ public class Cliente {
         Scanner entrada = new Scanner(s.getInputStream());
         PrintWriter saida = new PrintWriter(s.getOutputStream(), true);
 
-        System.out.println("Digite o gabarito");
-        String gabarito = keyboard.nextLine();
-        int questoes = gabarito.length();
-        String gabaritoOficial = "ABCDE";
-        
-        String informacoes = gabarito+" "+questoes+" "+gabaritoOficial;
+        System.out.println("Digite o numero de questoes");
+        String questoes = keyboard.next();
+
+        System.out.println("Digite as respostas");
+        String respostas = keyboard.next();
+
+        System.out.println("Digite seu gabarito");
+        String gabarito = keyboard.next();
+
+        int qtd;
+
+        String informacoes = questoes+" "+respostas+" "+gabarito;
         saida.println(informacoes);
 
+        qtd = entrada.nextInt();
+        System.out.println(qtd);
         saida.close();
         entrada.close();
         s.close();
